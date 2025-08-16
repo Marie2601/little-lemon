@@ -1,4 +1,4 @@
-import FooterLogo from './FooterLogo.png'
+import FooterLogo from './Images/FooterLogo.png'
 import './App.css';
 
 function Footer  () {
