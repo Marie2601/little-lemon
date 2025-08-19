@@ -31,12 +31,12 @@ function Nav  ()  {
             </li>
         </ul>
 
-        <Hamburger
+        <Hamburger className="Hamburger"
           toggled={isOpen}
           toggle={setIsOpen}
           size={24}
           duration={0.5}
-          color="#fff"
+          color="#333"
           rounded
           label="Toggle menu"
         />

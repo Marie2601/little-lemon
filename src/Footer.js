@@ -6,6 +6,7 @@ function Footer  () {
         <footer className="Footer">
         <img src={FooterLogo} className="Footer-Logo" alt="logo" />
         <ul className="Doormat Navigation">
+            <h3>Doormat Navigation</h3>
             <li>
             <a href="/">Home</a>
             </li>
@@ -26,11 +27,13 @@ function Footer  () {
             </li>
         </ul>
         <ul className="Contact">
+            <h3>Contact</h3>
             <li>
             <a href="/contact">Contact</a>
             </li>
         </ul>
         <ul className="Social Media">
+            <h3>Social Media Links</h3>
             <li>
             <a href="/facebook">Facebook</a>
             </li>
