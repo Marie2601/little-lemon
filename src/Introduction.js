@@ -5,12 +5,12 @@ import Mario from './Images/man-890885_1280.jpg';
 
 function Introduction () {
   return (
-    <div>
-        <h1 className="Title About">Little Lemon</h1>
-        <h2 className="Subtitle About">Chicago</h2>
-        <p className="Description About">Two Italian brothers, Adrian and Mario, grew up in the heart of Chicago, raised on their Nonna’s recipes and the rich traditions of their heritage. With a deep love for food and community, they opened Little Lemon, a cozy neighborhood restaurant that brings a fresh twist to classic Italian cuisine. Known for its warm atmosphere and bold, citrus-inspired flavors, Little Lemon quickly became a local favorite.</p>
-        <img src={Adrian} name="Adrian" className="Image Adrian" alt="man" />
-        <img src={Mario} name="Mario" className="Image Mario" alt="chef" />
+    <div className="About">
+        <h1 className="Title-About">Little Lemon</h1>
+        <h2 className="Subtitle-About">Chicago</h2>
+        <p className="Description-About">Two Italian brothers, Adrian and Mario, grew up in the heart of Chicago, raised on their Nonna’s recipes and the rich traditions of their heritage. With a deep love for food and community, they opened Little Lemon, a cozy neighborhood restaurant that brings a fresh twist to classic Italian cuisine. Known for its warm atmosphere and bold, citrus-inspired flavors, Little Lemon quickly became a local favorite.</p>
+        <img src={Adrian} name="Adrian" className="Image-Adrian" alt="man" />
+        <img src={Mario} name="Mario" className="Image-Mario" alt="chef" />
     </div>
   )
 }

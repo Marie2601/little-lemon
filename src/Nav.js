@@ -1,7 +1,7 @@
 import logo from './Images/Logo.svg'
 import './App.css';
 import React, { useState } from "react";
-import Hamburger from 'hamburger-react'
+import Hamburger from 'hamburger-react';
 
 function Nav  ()  {
     const [isOpen, setIsOpen] = useState(false);
@@ -15,7 +15,7 @@ function Nav  ()  {
             <a href="/"  onClick={() => setIsOpen(false)}>Home</a>
             </li>
             <li >
-            <a href="/about" onClick={() => setIsOpen(false)}>About</a>
+            <a href="./Introduction.js" onClick={() => setIsOpen(false)}>About</a>
             </li>
             <li>
             <a href="/menu" onClick={() => setIsOpen(false)}>Menu</a>

@@ -7,24 +7,55 @@ import Arthur from "./Images/man-1845259_1280.jpg";
 
 function Testimonials () {
   return (
-    <div>
-        <h1 className="Title">Testimonials</h1>
-        <h6 className="Rating">5/5</h6>
-        <img src={Maria} className="Image" alt="smile" />
-        <p className="Name">Maria</p>
-        <p className="Description">"Can’t get enough of the Lemon Tarte!"</p>
-        <h6 className="Rating">4.8/5</h6>
-        <img src={Andrea} className="Image" alt="woman" />
-        <p className="Name">Andrea</p>
-        <p className="Description">"Would give 5 stars, but sometimes it is hard to get a table.."</p>
-        <h6 className="Rating">5/5</h6>
-        <img src={Ted} className="Image" alt="man with beard" />
-        <p className="Name">Ted</p>
-        <p className="Description">Best Italian food in town!</p>
-        <h6 className="Rating">5/5</h6>
-        <img src={Arthur} className="Image" alt="older man" />
-        <p className="Name">Arthur</p>
-        <p className="Description">"Had my wife's birthday celebration here. It was excellent!"</p>
+    <div className="Container-Testimonials">
+        <h1 className="Title-Testimonial">What our customers say</h1>
+
+        <div className="TestimonialsGrid">
+
+        <div className="ContainerRating">
+        <h6 className="Rating-Testimonials">⭐⭐⭐⭐⭐</h6>
+
+         <div className="TopSection">
+        <img src={Maria} className="Image-Testimonials" alt="smile" />
+        <p className="Name-Testimonials">Maria</p>
+        </div>
+
+        <p className="Description-Testimonials">"Can’t get enough of the Lemon Tarte!"</p>
+        </div>
+
+        <div className="ContainerRating">
+        <h6 className="Rating-Testimonials">⭐⭐⭐⭐</h6>
+
+        <div className="TopSection">
+        <img src={Andrea} className="Image-Testimonials" alt="woman" />
+        <p className="Name-Testimonials">Andrea</p>
+        </div>
+
+        <p className="Description-Testimonials">"Would give 5 stars, but sometimes it is hard to get a table.."</p>
+        </div>
+
+        <div className="ContainerRating">
+        <h6 className="Rating-Testimonials">⭐⭐⭐⭐⭐</h6>
+
+        <div className="TopSection">
+        <img src={Ted} className="Image-Testimonials" alt="man with beard" />
+        <p className="Name-Testimonials">Ted</p>
+        </div>
+
+        <p className="Description-Testimonials">Best Italian food in town!</p>
+        </div>
+
+        <div className="ContainerRating">
+        <h6 className="Rating-Testimonials">⭐⭐⭐⭐⭐</h6>
+
+        <div className="TopSection">
+        <img src={Arthur} className="Image-Testimonials" alt="older man" />
+        <p className="Name-Testimonials">Arthur</p>
+        </div>
+        
+        <p className="Description-Testimonials">"Had my wife's birthday celebration here. It was excellent!"</p>
+        </div>
+        </div>
     </div>
   )
 }

@@ -8,6 +8,10 @@ const Specials = () => {
   return (
     <div className="Specials">
         <h1 className="Specials-Title">This weeks specials!</h1>
+        <button className="Specials-Button">Online Menu</button>
+        <br></br>
+
+        <div className="Specials-Grid">
         <article className="Specials-Item">
             <img src={GreekSalad} className="Specials-Item-Image" alt="Greek Salad" />
             <h2 className="Specials-Item-Title">Greek Salad</h2>
@@ -29,6 +33,7 @@ const Specials = () => {
             <p className="Specials-Item-Price">$5.00</p>
             <button className="Specials-Item-Button">Order a delivery</button>
         </article>
+        </div>
     </div>
   )
 }
