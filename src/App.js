@@ -1,24 +1,13 @@
-import './App.css';
-import Nav from './Nav.js';
-import Footer from './Footer.js';
-import Header from './Header.js';
-import Specials from './Specials.js';
-import Testimonials from './Testimonials.js';
-import Introduction from './Introduction.js';
 import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
+import Main from './Main';
 
-
-function App () {
+function App() {
   return (
-    <div className="Container">
-      <Nav/>
-      <Header/>
-      <Specials/>
-      <Testimonials/>
-      <Introduction/>
-      <Footer/>
-    </div>
+      <Main />
   );
 }
 
 export default App;
+
+

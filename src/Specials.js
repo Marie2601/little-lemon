@@ -7,8 +7,10 @@ import LemonDessert from './Images/lemon dessert.jpg';
 const Specials = () => {
   return (
     <div className="Specials">
+      <div className="Specials-Container">
         <h1 className="Specials-Title">This weeks specials!</h1>
         <button className="Specials-Button">Online Menu</button>
+      </div>
         <br></br>
 
         <div className="Specials-Grid">

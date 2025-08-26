@@ -2,6 +2,7 @@ import logo from './Images/Logo.svg'
 import './App.css';
 import React, { useState } from "react";
 import Hamburger from 'hamburger-react';
+import { Link } from 'react-router-dom';
 
 function Nav  ()  {
     const [isOpen, setIsOpen] = useState(false);
@@ -12,22 +13,22 @@ function Nav  ()  {
         <img src={logo} className="App-logo" alt="logo" />
         <ul className={`Links ${isOpen ? "active" : ""}`}>
             <li>
-            <a href="/"  onClick={() => setIsOpen(false)}>Home</a>
+            <Link to="/"  onClick={() => setIsOpen(false)}>Home</Link>
             </li>
             <li >
-            <a href="./Introduction.js" onClick={() => setIsOpen(false)}>About</a>
+            <Link to="./Introduction.js" onClick={() => setIsOpen(false)}>About</Link>
             </li>
             <li>
-            <a href="/menu" onClick={() => setIsOpen(false)}>Menu</a>
+            <Link to="/menu" onClick={() => setIsOpen(false)}>Menu</Link>
             </li>
             <li>
-            <a href="/reservations" onClick={() => setIsOpen(false)}>Reservations</a>
+            <Link to="/reservations" onClick={() => setIsOpen(false)}>Reservations</Link>
             </li>
             <li>
-            <a href="/order" onClick={() => setIsOpen(false)}>Order online</a>
+            <Link to="/order" onClick={() => setIsOpen(false)}>Order online</Link>
             </li>
             <li>
-            <a href="/login" onClick={() => setIsOpen(false)}>Login</a>
+            <Link to="/login" onClick={() => setIsOpen(false)}>Login</Link>
             </li>
         </ul>
 
