@@ -9,7 +9,7 @@ import Footer from './Footer.js';
 function Home() {
   return (
     <>
-      <Nav /> 
+      <Nav/>
       <Header /> 
       <Specials />}
       <Testimonials /> 
