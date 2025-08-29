@@ -3,11 +3,11 @@ import BookingForm from './BookingForm.js'
 import Nav from './Nav.js'
 import Footer from './Footer.js'
 
-function BookingPage() {
+function BookingPage({ availableTimes, dispatch }) {
     return (
      <>
         <Nav/>
-        <BookingForm/>
+        <BookingForm availableTimes={availableTimes} dispatch={dispatch} />
         <Footer/>
      </>
     );
