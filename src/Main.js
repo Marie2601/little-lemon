@@ -7,7 +7,7 @@ import BookingPage from './BookingPage.js';
 import BookingForm from './BookingForm.js';
 
 // Initial available times (same for all dates for now)
-function initializeTimes () {
+export function initializeTimes () {
   return [
     '17:00',
     '18:00',
@@ -19,7 +19,7 @@ function initializeTimes () {
 }
 
 // Reducer to update times (will become dynamic later)
-function updateTimes(state, action) {
+export function updateTimes(state, action) {
   switch (action.type) {
     case 'UPDATE_TIMES':
       // For now, return same times regardless of action.date

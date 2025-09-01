@@ -21,6 +21,8 @@ function BookingForm({ availableTimes, dispatch }) {
   };
 
   return (
+    <>
+    <h1>Book your table here</h1>
     <form onSubmit={handleSubmit} style={{ display: 'grid', maxWidth: '300px', gap: '20px' }}>
       <label htmlFor="res-date">Choose date</label>
       <input
@@ -82,6 +84,7 @@ function BookingForm({ availableTimes, dispatch }) {
 
       <input type="submit" value="Make Your Reservation" />
     </form>
+    </>
   );
 }
 
