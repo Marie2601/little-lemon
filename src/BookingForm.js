@@ -1,40 +1,103 @@
 // src/BookingForm.js
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import './App.css';
+import wheelchair from './Images/wheelchair.png';
+import { fetchAPI, submitAPI } from './api.js';
 
-function BookingForm({ availableTimes, dispatch }) {
+// Helper function to convert ISO date (yyyy-mm-dd) to dd-mm-yyyy if needed
+function convertToDDMMYYYY(isoDate) {
+  const [year, month, day] = isoDate.split("-");
+  return `${day}-${month}-${year}`;
+}
+
+function BookingForm({ onSubmit, dispatch }) {
   const [date, setDate] = useState('');
-  const [time, setTime] = useState('17:00');
+  const [time, setTime] = useState('');
+  const [availableTimes, setAvailableTimes] = useState([]);
   const [guests, setGuests] = useState(1);
   const [occasion, setOccasion] = useState('Birthday');
   const [location, setLocation] = useState('Inside');
+  const [wheelchairAccessible, setWheelchairAccessible] = useState(false);
+  const [formData, setFormData] = useState();
+
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [email, setEmail] = useState('');
+  const [comment, setComment] = useState('');
+
+  useEffect(() => {
+    if (date) {
+      console.log("Fetching available times for date:", date);
+      // Optionally format date if API requires dd-mm-yyyy
+      const isoDate = new Date(date); // if fetchAPI expects yyyy-mm-dd
+      const times = fetchAPI(isoDate)
+      setAvailableTimes(times);
+      setTime(times[0] || ''); // Select first available time
+    }
+  }, [date]);
 
   const handleDateChange = (e) => {
-    const selectedDate = e.target.value;
-    setDate(selectedDate);
-    dispatch({ type: 'UPDATE_TIMES', date: selectedDate }); // Send date to reducer (even if unused for now)
+    setDate(e.target.value); // yyyy-mm-dd
+    onSubmit(formData);
   };
 
   const handleSubmit = (e) => {
+    console.log("Submitting form...");
     e.preventDefault();
-    console.log({ date, time, guests, occasion, location });
-    // Further logic here
+
+    const formData = {
+      date,
+      time,
+      guests,
+      occasion,
+      location,
+      wheelchairAccessible,
+      firstName,
+      lastName,
+      email,
+      comment,
+    };
+
+    const success = submitAPI(formData);
+
+
+
+    if (success) {
+      alert("Reservation submitted successfully!");
+      // Reset form or navigate if needed
+    } else {
+      alert("Something went wrong. Please try again.");
+    }
   };
 
+
   return (
-    <>
-    <h1>Book your table here</h1>
-    <form onSubmit={handleSubmit} style={{ display: 'grid', maxWidth: '300px', gap: '20px' }}>
+    <div className="BookingForm">
+    <h1 className="Title-Booking">Book your table here</h1>
+    <form onSubmit={handleSubmit}>
+
+      <label htmlFor="guests">Number of guests</label>
+      <input className="Dropdown"
+        type="number"
+        id="guests"
+        min="1"
+        max="10"
+        value={guests}
+        onChange={(e) => setGuests(e.target.value)}
+        required
+      /><br/>
+
       <label htmlFor="res-date">Choose date</label>
-      <input
+      <input className="Dropdown"
         type="date"
         id="res-date"
         value={date}
         onChange={handleDateChange}
         required
-      />
+      /><br/>
 
       <label htmlFor="res-time">Choose time</label>
-      <select
+      <select className="Dropdown"
         id="res-time"
         value={time}
         onChange={(e) => setTime(e.target.value)}
@@ -45,21 +108,10 @@ function BookingForm({ availableTimes, dispatch }) {
             {availableTime}
           </option>
         ))}
-      </select>
-
-      <label htmlFor="guests">Number of guests</label>
-      <input
-        type="number"
-        id="guests"
-        min="1"
-        max="10"
-        value={guests}
-        onChange={(e) => setGuests(e.target.value)}
-        required
-      />
+      </select><br/>
 
       <label htmlFor="location">Location</label>
-      <select
+      <select className="Dropdown"
         id="location"
         value={location}
         onChange={(e) => setLocation(e.target.value)}
@@ -67,10 +119,14 @@ function BookingForm({ availableTimes, dispatch }) {
       >
         <option value="Inside">Inside</option>
         <option value="Outside">Outside</option>
-      </select>
+      </select><br/>
+
+      <label htmlFor="wheelchair">Wheelchair Accessible</label>
+      <img src={wheelchair} alt="wheelchair icon" width="20px" heigth="20px"/>
+      <input type="checkbox" id="wheelchair" name="wheelchair" /><br/>
 
       <label htmlFor="occasion">Occasion</label>
-      <select
+      <select className="Dropdown"
         id="occasion"
         value={occasion}
         onChange={(e) => setOccasion(e.target.value)}
@@ -80,11 +136,23 @@ function BookingForm({ availableTimes, dispatch }) {
         <option>Anniversary</option>
         <option>Engagement</option>
         <option>Other</option>
-      </select>
+      </select><br/>
 
-      <input type="submit" value="Make Your Reservation" />
+    <label htmlFor="firstName">First Name</label>
+    <input className="Text-Input" type="text" id="firstName" name="firstName" required /><br/>
+
+    <label htmlFor="lastName">Last Name</label>
+    <input className="Text-Input" type="text" id="lastName" name="lastName" required /><br/>
+
+    <label htmlFor="email">Email</label>
+    <input className="Text-Input" type="email" id="email" name="email" required /><br/>
+
+    <label htmlFor="comment">Special Requests</label><br/>
+    <textarea className="Comment" id="comment" name="comment" rows="4" cols="50" placeholder="Let us know if you have any special requests"></textarea><br/>
+
+    <input className="Button" type="submit" value="Make Your Reservation" />
     </form>
-    </>
+    </div>
   );
 }
 

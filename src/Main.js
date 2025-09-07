@@ -1,10 +1,12 @@
 // src/Main.js
 import React, { useReducer } from 'react';
-import { Routes, Route } from 'react-router-dom';   
+import { Routes, Route, useNavigate } from 'react-router-dom';   
 import Home from './Home.js';
 import Introduction from './Introduction.js';
 import BookingPage from './BookingPage.js';
 import BookingForm from './BookingForm.js';
+import ConfirmedBooking from './ConfirmedBooking.js';
+import { fetchAPI, submitAPI } from './api.js';
 
 // Initial available times (same for all dates for now)
 export function initializeTimes () {
@@ -31,6 +33,19 @@ export function updateTimes(state, action) {
 
 function Main() {
   const [availableTimes, dispatch] = useReducer(updateTimes, [], initializeTimes);
+  const navigate = useNavigate();
+
+  const submitForm = async (formData) => {
+    const result = await submitAPI(formData);  // Assuming submitAPI returns a Promise<boolean>
+    if (result === true) {
+      navigate('/confirmation');  // Adjust the route to your confirmed page
+    } else {
+      // Optionally handle failure (e.g. show error message)
+      console.error('Booking submission failed');
+    }
+  };
+
+<BookingForm onSubmit={submitForm} />
 
   return (
     <Routes>
@@ -38,8 +53,9 @@ function Main() {
       <Route path="/about" element={<Introduction />} />
       <Route
         path="/reservations"
-        element={<BookingPage availableTimes={availableTimes} dispatch={dispatch} />}
+        element={<BookingPage availableTimes={availableTimes} dispatch={dispatch} onSubmit={submitForm} />}
       />
+      <Route path="/confirmation" element={<ConfirmedBooking />} />
     </Routes>
   );
 }
