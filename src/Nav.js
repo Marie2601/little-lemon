@@ -1,38 +1,23 @@
-import logo from './Images/Logo.svg'
+import logo from './Images/Logo.svg';
 import './App.css';
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Hamburger from 'hamburger-react';
 import { Link } from 'react-router-dom';
 
-function Nav  ()  {
-    const [isOpen, setIsOpen] = useState(false);
+function Nav() {
+  const [isOpen, setIsOpen] = useState(false);
 
-    return (
-        <nav className="Nav">
+  useEffect(() => {
+    document.body.style.overflow = isOpen ? 'hidden' : 'auto';
+  }, [isOpen]);
 
-        <img src={logo} className="App-logo" alt="logo" />
-        <ul className={`Links ${isOpen ? "active" : ""}`}>
-            <li>
-            <Link to="/"  onClick={() => setIsOpen(false)}>Home</Link>
-            </li>
-            <li >
-            <Link to="/about" onClick={() => setIsOpen(false)}>About</Link>
-            </li>
-            <li>
-            <Link to="/menu" onClick={() => setIsOpen(false)}>Menu</Link>
-            </li>
-            <li>
-            <Link to="/reservations" onClick={() => setIsOpen(false)}>Reservations</Link>
-            </li>
-            <li>
-            <Link to="/order" onClick={() => setIsOpen(false)}>Order online</Link>
-            </li>
-            <li>
-            <Link to="/login" onClick={() => setIsOpen(false)}>Login</Link>
-            </li>
-        </ul>
+  return (
+    <nav className="Nav">
 
-        <Hamburger className="Hamburger"
+      <img src={logo} className="App-Logo" alt="logo" />
+
+      <div className="HamburgerWrapper">
+        <Hamburger
           toggled={isOpen}
           toggle={setIsOpen}
           size={24}
@@ -41,12 +26,26 @@ function Nav  ()  {
           rounded
           label="Toggle menu"
         />
-        </nav>
-    );
+
+      </div>
+
+      <ul className={`Links ${isOpen ? "active" : ""}`}>
+
+        <li><Link to="/" onClick={() => setIsOpen(false)}>Home</Link></li>
+
+        <li><Link to="/about" onClick={() => setIsOpen(false)}>About</Link></li>
+
+        <li><Link to="/menu" onClick={() => setIsOpen(false)}>Menu</Link></li>
+
+        <li><Link to="/reservations" onClick={() => setIsOpen(false)}>Reservations</Link></li>
+
+        <li><Link to="/order" onClick={() => setIsOpen(false)}>Order</Link></li>
+
+        <li><Link to="/login" onClick={() => setIsOpen(false)}>Login</Link></li>
+
+      </ul>
+    </nav>
+  );
 }
 
-export default Nav
-
-
-
-
+export default Nav;
