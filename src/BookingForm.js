@@ -76,6 +76,7 @@ function BookingForm({ onSubmit, dispatch }) {
     <h1 className="Title-Booking">Book your table here</h1>
     <form onSubmit={handleSubmit}>
 
+      <div className="Form-Field">
       <label htmlFor="guests">Number of guests</label>
       <input className="Dropdown"
         type="number"
@@ -85,8 +86,11 @@ function BookingForm({ onSubmit, dispatch }) {
         value={guests}
         onChange={(e) => setGuests(e.target.value)}
         required
-      /><br/>
+      />
+      </div>
+      <br/>
 
+      <div className="Form-Field">
       <label htmlFor="res-date">Choose date</label>
       <input className="Dropdown"
         type="date"
@@ -94,8 +98,11 @@ function BookingForm({ onSubmit, dispatch }) {
         value={date}
         onChange={handleDateChange}
         required
-      /><br/>
+      />
+      </div>
+      <br/>
 
+      <div className="Form-Field">
       <label htmlFor="res-time">Choose time</label>
       <select className="Dropdown"
         id="res-time"
@@ -108,8 +115,11 @@ function BookingForm({ onSubmit, dispatch }) {
             {availableTime}
           </option>
         ))}
-      </select><br/>
+      </select>
+      </div>
+      <br/>
 
+      <div className="Form-Field">
       <label htmlFor="location">Location</label>
       <select className="Dropdown"
         id="location"
@@ -119,12 +129,19 @@ function BookingForm({ onSubmit, dispatch }) {
       >
         <option value="Inside">Inside</option>
         <option value="Outside">Outside</option>
-      </select><br/>
+      </select>
+      </div>
+      <br/>
 
+      <div className="Form-Field">  
       <label htmlFor="wheelchair">Wheelchair Accessible</label>
-      <img src={wheelchair} alt="wheelchair icon" width="20px" heigth="20px"/>
+      <div className="Checkbox-Label">
+      <img src={wheelchair} className="Icon" alt="wheelchair icon" width="20px" heigth="20px"/>
       <input type="checkbox" id="wheelchair" name="wheelchair" /><br/>
+      </div>
+      </div>
 
+      <div className="Form-Field">
       <label htmlFor="occasion">Occasion</label>
       <select className="Dropdown"
         id="occasion"
@@ -136,20 +153,30 @@ function BookingForm({ onSubmit, dispatch }) {
         <option>Anniversary</option>
         <option>Engagement</option>
         <option>Other</option>
-      </select><br/>
+      </select>
+      </div>
+      <br/>
 
+    <div className="Form-Field">  
     <label htmlFor="firstName">First Name</label>
     <input className="Text-Input" type="text" id="firstName" name="firstName" required /><br/>
+    </div>
 
+    <div className="Form-Field">   
     <label htmlFor="lastName">Last Name</label>
     <input className="Text-Input" type="text" id="lastName" name="lastName" required /><br/>
+    </div>    
 
+    <div className="Form-Field">   
     <label htmlFor="email">Email</label>
     <input className="Text-Input" type="email" id="email" name="email" required /><br/>
+    </div>
 
+    <div className="Form-Field">
     <label htmlFor="comment">Special Requests</label><br/>
     <textarea className="Comment" id="comment" name="comment" rows="4" cols="50" placeholder="Let us know if you have any special requests"></textarea><br/>
-
+    </div>
+        
     <input className="Button" type="submit" value="Make Your Reservation" />
     </form>
     </div>

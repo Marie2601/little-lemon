@@ -691,135 +691,200 @@
   z-index: 0;
 }
 
-.Booking-Form {
-  display: grid;
+.Checkbox-Label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: 20px;
+  margin-bottom: 10px;
+}
+
+.Checkbox-Label input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+/* Tablets (≤ 768px) */
+@media (max-width: 768px) {
+  .BookingHeader {
+    grid-template-columns: repeat(8, 1fr); 
+    height: auto;
+    padding: 1.5em;
+    width: 100%;
+    margin-left: 0%;
+    margin-right: 0%;
+  }
+
+  .Text-Container-Booking {
+    grid-column: 1 / 5; 
+    align-items: flex-start;
+  }
+
+  .Reservation {
+    right: 10%;
+    top: 15%;
+    width: 250px;
+  }
+}
+
+/* Phones (≤ 480px) */
+@media (max-width: 480px) {
+  .BookingHeader {
+    grid-template-columns: repeat(4, 1fr); 
+    padding: 1em;
+    width: 100%;
+    margin: 0;
+    height: auto;
+    box-sizing: border-box; /* Ensure padding doesn't add extra width */
+  }
+
+  .Text-Container-Booking {
+    grid-column: 1 / 5;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .Title {
+    font-size: 48px;
+  }
+
+  .Subtitle {
+    font-size: 28px;
+  }
+
+  .Reservation {
+    display: none; /* Hide image on mobile */
+  }
+}
+    
+.BookingForm {
+  display: flex;
   flex-direction: column;
   align-items: center;
   padding: 2em;
-  background-color: #EDEFEE;
-  min-height: 400px;
-}
-
-form > label {
-  font-family: 'Karla', sans-serif;
-  font-size: 20px;
-  color: #333;
-  margin-left: 10%;
-  margin-top: 20px;
-  margin-bottom: 10px;
-  align-self: start;
-  margin-right: 40px;
+  background-color: #edefee;
 }
 
 .Title-Booking {
   font-family: 'Markazi Text', serif;
-  font-size: 50px;
+  font-size: 48px;
   color: #333;
-  margin-left: 10%;
+  margin-left: 20px;
   margin-bottom: 50px;
   margin-top: 50px;
   align-self: start;
+}
+
+.Icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
 }
 
 .Button {
   background-color: #F4CE14;
   color: #333;
   font-family: 'Karla', sans-serif;
-  font-style: bold;
   font-weight: bold;
   font-size: 20px;
   padding: 10px 20px;
   border: none;
   border-radius: 16px;
   cursor: pointer;
-  grid-column: 2/12 4/12;
-  width: fit-content;
-  margin-top: 50px;
-  margin-left: 10%;
-  margin-bottom: 60px;
+  width: 250px;
+  height: 60px;;
+  margin-top: 20px;
 }
 
-.Button:hover {
-  background-color: #EE9972;
+.Form-Field {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 800px;
+  margin-bottom: 20px;
+}
+
+form > label,
+.Form-Field label {
+  font-family: 'Karla', sans-serif;
+  font-size: 20px;
   color: #333;
+  margin-bottom: 10px;
 }
 
-.Text-Input {
-  width: 70%;
+.Text-Input,
+.Dropdown,
+.Comment {
+  width: 100%;
   padding: 10px;
-  border: 1px solid #495E57;
+  border: none;
   border-radius: 4px;
   box-sizing: border-box;
   font-size: 16px;
-  margin-right: 5%;
-  margin-top: 10px;
-  margin-bottom: 10px;
   font-family: Karla, sans-serif;
+  color: #333;
+  background-color: white;
 }
+
+
+/* Desktop layout: Label + Field side by side */
+@media screen and (min-width: 769px) {
+  .Form-Field {
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .Form-Field label {
+    width: 150px;
+    margin-bottom: 0;
+    margin-right: 20px;
+    text-align: right;
+  }
+
+  .Form-Field select,
+  .Form-Field input,
+  .Form-Field textarea {
+    width: 100%;
+  }
+}
+
+/* Phones (≤ 480px) */
+@media (max-width: 480px) {
+
+.Title-Booking {
+  font-family: 'Markazi Text', serif;
+  font-size: 40px;
+  color: #333;
+  margin-left: 10px;
+  margin-bottom: 50px;
+  margin-top: 50px;
+  align-self: start;}
+
+
+form > label {
+  font-size: 18px;
+}
+
 
 .Dropdown {
-  width: 400px;
-  padding: 10px;
-  border: 1px solid #495E57;
-  border-radius: 4px;
-  box-sizing: border-box;
-  font-size: 16px;
-  margin-right:40%;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  font-family: Karla, sans-serif;
-  background-color: edefee;
-  color: #333;
+  width: 80%;
+  margin-left: 20px;
 }
 
 .Comment {
   width: 80%;
-  padding: 10px;
-  border: 1px solid #495E57;
-  border-radius: 4px;
-  box-sizing: border-box;
-  font-size: 16px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  margin-left:10%;
-  font-family: Karla, sans-serif;
-  color:#333;
-  background-color: #EDEFEE;
-}
-@media screen and (max-width: 820px) {
-  .Nav {
-    grid-template-columns: repeat(6, 1fr);
-  }
-
-  .Hamburger {
-    display: block;
-    position: absolute;
-    margin: 0rem 1rem;
-    right: 0;
-  }
-  
-  .Links li a {
-    display: none;
-   
-  }
-  
-  .Footer {
-    grid-template-columns: repeat(6, 1fr);
-    row-gap: 1em;
-  }
-  
-  .Footer-Logo {
-    height: 150px;
-    margin-top: 10px;
-  }
-  
-  .Footer h3 {
-    font-size: 18px;
-  }
-  
-  .Footer li a {
-    font-size: 16px;
-  }
-  
+  margin-left:20px;;
 }
 
+.Text-Input {
+  width: 80%;
+  margin-left: 20px;
+}
+
+}
