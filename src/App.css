@@ -705,8 +705,7 @@
   cursor: pointer;
 }
 
-/* Tablets (≤ 768px) */
-@media (max-width: 768px) {
+@media (max-width: 950px) {
   .BookingHeader {
     grid-template-columns: repeat(8, 1fr); 
     height: auto;
@@ -887,4 +886,40 @@ form > label {
   margin-left: 20px;
 }
 
+}
+
+/* ConfirmedBooking Page Styles*/
+
+.ConfirmedBooking {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2em;
+  background-color: #495E57;
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+.Confirmation {
+  font-family: 'Markazi Text', serif;
+  font-size: 48px;
+  color: #F4CE14;
+  margin-top: 100px;
+  text-align: center;
+}
+
+.ConfirmationDescriotion {
+  font-family: 'Karla', sans-serif;
+  font-size: 20px;
+  color: #edefee;
+  margin-top: 20px;
+  text-align: center;
+  max-width: 600px;
+}
+
+.Logo2 {
+  height: 200px;
+  width: auto;
+  margin-top: 50px;
+  justify-content: center;
 }

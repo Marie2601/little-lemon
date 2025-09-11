@@ -38,7 +38,6 @@ function BookingForm({ onSubmit, dispatch }) {
 
   const handleDateChange = (e) => {
     setDate(e.target.value); // yyyy-mm-dd
-    onSubmit(formData);
   };
 
   const handleSubmit = (e) => {
@@ -58,16 +57,7 @@ function BookingForm({ onSubmit, dispatch }) {
       comment,
     };
 
-    const success = submitAPI(formData);
-
-
-
-    if (success) {
-      alert("Reservation submitted successfully!");
-      // Reset form or navigate if needed
-    } else {
-      alert("Something went wrong. Please try again.");
-    }
+  onSubmit(formData);
   };
 
 
@@ -136,7 +126,12 @@ function BookingForm({ onSubmit, dispatch }) {
       <div className="Form-Field">  
       <label htmlFor="wheelchair">Wheelchair Accessible</label>
       <div className="Checkbox-Label">
-      <img src={wheelchair} className="Icon" alt="wheelchair icon" width="20px" heigth="20px"/>
+      <img src={wheelchair} className="Icon" 
+          alt="wheelchair icon" 
+          width="20px" 
+          heigth="20px"
+          checked={wheelchairAccessible}
+          onChange={(e) => setWheelchairAccessible(e.target.checked)}/>
       <input type="checkbox" id="wheelchair" name="wheelchair" /><br/>
       </div>
       </div>
@@ -159,24 +154,49 @@ function BookingForm({ onSubmit, dispatch }) {
 
     <div className="Form-Field">  
     <label htmlFor="firstName">First Name</label>
-    <input className="Text-Input" type="text" id="firstName" name="firstName" required /><br/>
+    <input className="Text-Input" 
+            type="text" 
+            id="firstName" 
+            name="firstName" 
+            required 
+            value={firstName}
+            onChange={(e) => setFirstName(e.target.value)}/><br/>
     </div>
 
     <div className="Form-Field">   
     <label htmlFor="lastName">Last Name</label>
-    <input className="Text-Input" type="text" id="lastName" name="lastName" required /><br/>
+    <input className="Text-Input" 
+          type="text" 
+          id="lastName" 
+          name="lastName" 
+          required 
+          value={lastName}
+          onChange={(e) => setLastName(e.target.value)}/><br/>
     </div>    
 
     <div className="Form-Field">   
     <label htmlFor="email">Email</label>
-    <input className="Text-Input" type="email" id="email" name="email" required /><br/>
+    <input className="Text-Input" 
+          type="email" 
+          id="email" 
+          name="email" 
+          required
+          value={email}
+          onChange={(e) => setEmail(e.target.value)} /><br/>
     </div>
 
     <div className="Form-Field">
     <label htmlFor="comment">Special Requests</label><br/>
-    <textarea className="Comment" id="comment" name="comment" rows="4" cols="50" placeholder="Let us know if you have any special requests"></textarea><br/>
+    <textarea className="Comment" 
+          id="comment" 
+          name="comment" 
+          rows="4" 
+          cols="50" 
+          placeholder="Let us know if you have any special requests"
+          value={comment}
+          onChange={(e) => setComment(e.target.value)}></textarea><br/>
     </div>
-        
+
     <input className="Button" type="submit" value="Make Your Reservation" />
     </form>
     </div>

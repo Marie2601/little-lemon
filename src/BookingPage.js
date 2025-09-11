@@ -4,12 +4,15 @@ import Nav from './Nav.js'
 import Footer from './Footer.js'
 import BookingPageHeader from './BookingPageHeader.js'
 
-function BookingPage({ availableTimes, dispatch }) {
+function BookingPage({ availableTimes, dispatch, onSubmit }) {
     return (
      <>
         <Nav/>
         <BookingPageHeader/>
-        <BookingForm availableTimes={availableTimes} dispatch={dispatch} />
+        <BookingForm 
+            availableTimes={availableTimes} 
+            dispatch={dispatch}
+            onSubmit={onSubmit} />
         <Footer/>
      </>
     );

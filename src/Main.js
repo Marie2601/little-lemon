@@ -1,4 +1,3 @@
-// src/Main.js
 import React, { useReducer } from 'react';
 import { Routes, Route, useNavigate } from 'react-router-dom';   
 import Home from './Home.js';
@@ -7,6 +6,7 @@ import BookingPage from './BookingPage.js';
 import BookingForm from './BookingForm.js';
 import ConfirmedBooking from './ConfirmedBooking.js';
 import { fetchAPI, submitAPI } from './api.js';
+import Specials from './Specials.js';
 
 // Initial available times (same for all dates for now)
 export function initializeTimes () {
@@ -45,7 +45,6 @@ function Main() {
     }
   };
 
-<BookingForm onSubmit={submitForm} />
 
   return (
     <Routes>
@@ -56,6 +55,7 @@ function Main() {
         element={<BookingPage availableTimes={availableTimes} dispatch={dispatch} onSubmit={submitForm} />}
       />
       <Route path="/confirmation" element={<ConfirmedBooking />} />
+      <Route path="/menu" element={<Specials />} />
     </Routes>
   );
 }
