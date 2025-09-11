@@ -8,7 +8,7 @@ const ConfirmedBooking
     <div className="ConfirmedBooking">
         <h3 className="Confirmation">Confirmed Booking</h3>
         <p className="ConfirmationDescriotion">We confirm your booking in the Little Lemon Restaurant. We are happy to see you there! Mario & Adrian</p>
-        <img src={logo2} alt="logo" className="Logo2"/>
+        <img src={logo2} alt="logo" className="Logo2" aria-label="On Click"/>
     </div>
   )
 }

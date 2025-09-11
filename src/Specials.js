@@ -9,31 +9,31 @@ const Specials = () => {
     <div className="Specials">
       <div className="Specials-Container">
         <h1 className="Specials-Title">This weeks specials!</h1>
-        <button className="Specials-Button">Online Menu</button>
+        <button className="Specials-Button" aria-label="On Click">Online Menu</button>
       </div>
         <br></br>
 
         <div className="Specials-Grid">
         <article className="Specials-Item">
-            <img src={GreekSalad} className="Specials-Item-Image" alt="Greek Salad" />
+            <img src={GreekSalad} className="Specials-Item-Image" alt="Greek Salad" aria-label="On Click"/>
             <h2 className="Specials-Item-Title">Greek Salad</h2>
             <p className="Specials-Item-Description">The famous greek salad of crispy lettuce, peppers, olives and our Chicago style feta cheese, garnished with crunchy garlic and rosemary croutons. </p>
             <p className="Specials-Item-Price">$12.99</p>
-            <button className="Specials-Item-Button">Order a delivery</button>
+            <button className="Specials-Item-Button" aria-label="On Click">Order a delivery</button>
         </article>
         <article className="Specials-Item">
-            <img src={Bruschetta} className="Specials-Item-Image" alt="Bruschetta" />
+            <img src={Bruschetta} className="Specials-Item-Image" alt="Bruschetta" aria-label="On Click"/>
             <h2 className="Specials-Item-Title">Bruschetta</h2>
             <p className="Specials-Item-Description">Our Bruschetta is made from grilled bread that has been smeared with garlic and seasoned with salt and olive oil.  </p>
             <p className="Specials-Item-Price">$5.99</p>
-            <button className="Specials-Item-Button">Order a delivery</button>
+            <button className="Specials-Item-Button" aria-label="On Click">Order a delivery</button>
         </article>
         <article className="Specials-Item">
-            <img src={LemonDessert} className="Specials-Item-Image" alt="Lemon Dessert" />
+            <img src={LemonDessert} className="Specials-Item-Image" alt="Lemon Dessert" aria-label="On Click"/>
             <h2 className="Specials-Item-Title">Lemon Dessert</h2>
             <p className="Specials-Item-Description">This comes straight from grandma’s recipe book, every last ingredient has been sourced and is as authentic as can be imagined. </p>
             <p className="Specials-Item-Price">$5.00</p>
-            <button className="Specials-Item-Button">Order a delivery</button>
+            <button className="Specials-Item-Button" aria-label="On Click">Order a delivery</button>
         </article>
         </div>
     </div>

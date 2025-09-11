@@ -10,7 +10,7 @@ const BookingPageHeader = () => {
       <h1 className="Title">Booking Reservation</h1>
       <h2 className="Subtitle">Book your table in just a few clicks</h2>
       </div>
-    <img src={reservation} name="reservation" className="Reservation" alt="reservation" />
+    <img src={reservation} name="reservation" className="Reservation" alt="reservation" aria-label="On Click"/>
     </div>
   )
 }

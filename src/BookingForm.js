@@ -197,7 +197,7 @@ function BookingForm({ onSubmit, dispatch }) {
           onChange={(e) => setComment(e.target.value)}></textarea><br/>
     </div>
 
-    <input className="Button" type="submit" value="Make Your Reservation" />
+    <input className="Button" type="submit" aria-label="On Click" value="Make Your Reservation" />
     </form>
     </div>
   );

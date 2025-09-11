@@ -16,7 +16,7 @@ function Testimonials () {
         <h6 className="Rating-Testimonials">⭐⭐⭐⭐⭐</h6>
 
          <div className="TopSection">
-        <img src={Maria} className="Image-Testimonials" alt="smile" />
+        <img src={Maria} className="Image-Testimonials" alt="smile" aria-label="On Click"/>
         <p className="Name-Testimonials">Maria</p>
         </div>
 
@@ -27,7 +27,7 @@ function Testimonials () {
         <h6 className="Rating-Testimonials">⭐⭐⭐⭐</h6>
 
         <div className="TopSection">
-        <img src={Andrea} className="Image-Testimonials" alt="woman" />
+        <img src={Andrea} className="Image-Testimonials" alt="woman" aria-label="On Click"/>
         <p className="Name-Testimonials">Andrea</p>
         </div>
 
@@ -38,7 +38,7 @@ function Testimonials () {
         <h6 className="Rating-Testimonials">⭐⭐⭐⭐⭐</h6>
 
         <div className="TopSection">
-        <img src={Ted} className="Image-Testimonials" alt="man with beard" />
+        <img src={Ted} className="Image-Testimonials" alt="man with beard" aria-label="On Click"/>
         <p className="Name-Testimonials">Ted</p>
         </div>
 
@@ -49,7 +49,7 @@ function Testimonials () {
         <h6 className="Rating-Testimonials">⭐⭐⭐⭐⭐</h6>
 
         <div className="TopSection">
-        <img src={Arthur} className="Image-Testimonials" alt="older man" />
+        <img src={Arthur} className="Image-Testimonials" alt="older man" aria-label="On Click"/>
         <p className="Name-Testimonials">Arthur</p>
         </div>
         

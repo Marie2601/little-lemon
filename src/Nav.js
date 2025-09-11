@@ -14,7 +14,7 @@ function Nav() {
   return (
     <nav className="Nav">
 
-      <img src={logo} className="App-Logo" alt="logo" />
+      <img src={logo} className="App-Logo" alt="logo" aria-label="On Click"/>
 
       <div className="HamburgerWrapper">
         <Hamburger
@@ -31,17 +31,17 @@ function Nav() {
 
       <ul className={`Links ${isOpen ? "active" : ""}`}>
 
-        <li><Link to="/" onClick={() => setIsOpen(false)}>Home</Link></li>
+        <li><Link to="/" aria-label="On Click" onClick={() => setIsOpen(false)}>Home</Link></li>
 
-        <li><Link to="/about" onClick={() => setIsOpen(false)}>About</Link></li>
+        <li><Link to="/about" aria-label="On Click" onClick={() => setIsOpen(false)}>About</Link></li>
 
-        <li><Link to="/menu" onClick={() => setIsOpen(false)}>Menu</Link></li>
+        <li><Link to="/menu" aria-label="On Click" onClick={() => setIsOpen(false)}>Menu</Link></li>
 
-        <li><Link to="/reservations" onClick={() => setIsOpen(false)}>Reservations</Link></li>
+        <li><Link to="/reservations" aria-label="On Click" onClick={() => setIsOpen(false)}>Reservations</Link></li>
 
-        <li><Link to="/order" onClick={() => setIsOpen(false)}>Order</Link></li>
+        <li><Link to="/order" aria-label="On Click" onClick={() => setIsOpen(false)}>Order</Link></li>
 
-        <li><Link to="/login" onClick={() => setIsOpen(false)}>Login</Link></li>
+        <li><Link to="/login" aria-label="On Click" onClick={() => setIsOpen(false)}>Login</Link></li>
 
       </ul>
     </nav>

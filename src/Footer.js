@@ -4,7 +4,7 @@ import './App.css';
 function Footer  () {
     return (
         <footer className="Footer">
-        <img src={FooterLogo} className="Footer-Logo" alt="logo" />
+        <img src={FooterLogo} className="Footer-Logo" alt="logo" aria-label="On Click"/>
 
 
         <div className="Doormat-Navigation">

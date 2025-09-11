@@ -36,11 +36,11 @@ function Main() {
   const navigate = useNavigate();
 
   const submitForm = async (formData) => {
-    const result = await submitAPI(formData);  // Assuming submitAPI returns a Promise<boolean>
+    const result = await submitAPI(formData); 
     if (result === true) {
-      navigate('/confirmation');  // Adjust the route to your confirmed page
+      navigate('/confirmation');  
     } else {
-      // Optionally handle failure (e.g. show error message)
+
       console.error('Booking submission failed');
     }
   };

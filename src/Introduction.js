@@ -13,8 +13,8 @@ function About () {
         </div>
 
         <div className="Container-Pictures">
-        <img src={Adrian} name="Adrian" className="Image-Adrian" alt="man" />
-        <img src={Mario} name="Mario" className="Image-Mario" alt="chef" />
+        <img src={Adrian} name="Adrian" className="Image-Adrian" alt="man" aria-label="On Click" />
+        <img src={Mario} name="Mario" className="Image-Mario" alt="chef" aria-label="On Click"/>
         </div>
     </div>
   )

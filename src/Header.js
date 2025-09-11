@@ -9,9 +9,9 @@ const Header = () => {
       <h1 className="Title">Little Lemon</h1>
       <h2 className="Subtitle">Chicago</h2>
       <p className="Description">We are a family owned Mediterranean restaurant, focused on traditional recipes served with a modern twist.</p>
-      <button className="Reserve-Button">Reserve a Table</button>
+      <button className="Reserve-Button" aria-label="On Click">Reserve a Table</button>
       </div>
-      <img src={restauranfood} name="restauranfood" className="Restaurantfood" alt="serving fingerfoods" />
+      <img src={restauranfood} name="restauranfood" className="Restaurantfood" alt="serving fingerfoods" aria-label="On Click"/>
     </div>
   )
 }
