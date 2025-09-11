@@ -8,24 +8,16 @@ import ConfirmedBooking from './ConfirmedBooking.js';
 import { fetchAPI, submitAPI } from './api.js';
 import Specials from './Specials.js';
 
-// Initial available times (same for all dates for now)
-export function initializeTimes () {
-  return [
-    '17:00',
-    '18:00',
-    '19:00',
-    '20:00',
-    '21:00',
-    '22:00',
-  ];
+export function initializeTimes(date) {
+  return fetchAPI(date);
 }
 
-// Reducer to update times (will become dynamic later)
+
 export function updateTimes(state, action) {
   switch (action.type) {
     case 'UPDATE_TIMES':
-      // For now, return same times regardless of action.date
-      return initializeTimes();
+
+      return initializeTimes(action.date);
     default:
       return state;
   }

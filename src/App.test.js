@@ -1,49 +1,41 @@
-import { render, screen } from '@testing-library/react';
-import BookingForm from './BookingForm';
-import {updateTimes, initializeTimes} from './Main';
+import { updateTimes, initializeTimes } from './Main';
+import { fetchAPI } from './api';
 
-
-test('Renders the BookingForm heading', () => {
-  const mockAvailableTimes = ["17:00", "18:00", "19:00"];
-  render(<BookingForm availableTimes={mockAvailableTimes} />);
-  const headingElement = screen.getByText("Book your table here");
-  expect(headingElement).toBeInTheDocument();
-});
-
-test('should return the correct array of time strings', () => {
-  const { initializeTimes } = require('./Main.js');
-  const times = initializeTimes();
-  expect(times).toEqual([
-    '17:00',
-    '18:00',
-    '19:00',
-    '20:00',
-    '21:00',
-    '22:00',
-  ]);
-});
+// Mock fetchAPI
+jest.mock('./api', () => ({
+  fetchAPI: jest.fn(),
+  submitAPI: jest.fn()
+}));
 
 describe('initializeTimes', () => {
-  test('should return the correct array of time strings', () => {
-    const times = initializeTimes();
-    expect(times).toEqual([
-      '17:00',
-      '18:00',
-      '19:00',
-      '20:00',
-      '21:00',
-      '22:00',
-    ]);
+  test('should return array of time strings from fetchAPI', () => {
+    const mockTimes = ['17:00', '18:00', '19:00'];
+    fetchAPI.mockReturnValue(mockTimes);
+
+    const date = new Date('2025-08-30');
+    const times = initializeTimes(date);
+
+    expect(fetchAPI).toHaveBeenCalledWith(date);
+    expect(times).toEqual(mockTimes);
   });
 });
 
 describe('updateTimes', () => {
+  beforeEach(() => {
+    fetchAPI.mockReset();
+  });
+
   test('should return initialized times if action type is UPDATE_TIMES', () => {
-    const state = ['17:00', '18:00'];
-    const action = { type: 'UPDATE_TIMES', date: '2025-08-30' };
+    const mockTimes = ['17:00', '18:00', '19:00'];
+    fetchAPI.mockReturnValue(mockTimes);
+
+    const state = ['17:00'];
+    const action = { type: 'UPDATE_TIMES', date: new Date('2025-08-30') };
+
     const newState = updateTimes(state, action);
 
-    expect(newState).toEqual(initializeTimes());
+    expect(fetchAPI).toHaveBeenCalledWith(action.date);
+    expect(newState).toEqual(mockTimes);
   });
 
   test('should return the same state if action type is unknown', () => {
