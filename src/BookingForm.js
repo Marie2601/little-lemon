@@ -129,10 +129,12 @@ function BookingForm({ onSubmit, dispatch }) {
       <img src={wheelchair} className="Icon" 
           alt="wheelchair icon" 
           width="20px" 
-          heigth="20px"
-          checked={wheelchairAccessible}
-          onChange={(e) => setWheelchairAccessible(e.target.checked)}/>
-      <input type="checkbox" id="wheelchair" name="wheelchair" /><br/>
+          height="20px"/>
+      <input  type="checkbox" 
+              id="wheelchair" 
+              name="wheelchair"           
+              checked={wheelchairAccessible}
+              onChange={(e) => setWheelchairAccessible(e.target.checked)}/><br/>
       </div>
       </div>
 
@@ -197,12 +199,12 @@ function BookingForm({ onSubmit, dispatch }) {
           onChange={(e) => setComment(e.target.value)}></textarea><br/>
     </div>
 
-    <input className="Button" type="submit" aria-label="On Click" value="Make Your Reservation" />
+    <button className="Button" type="submit">Make Your Reservation</button>
+
     </form>
     </div>
   );
 }
 
 export default BookingForm;
-
 
