@@ -9,7 +9,8 @@ const seededRandom = function (seed) {
 
 export const fetchAPI = function(date) {
     let result = [];
-    let random = seededRandom(date.getDate());
+    console.log("Fetching available times for date:", date);
+    let random = seededRandom(date);
 
     for(let i = 17; i <= 23; i++) {
         if(random() < 0.5) {
